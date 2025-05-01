@@ -19,8 +19,7 @@ class Locators():
     # Кнопка "Войти в аккаунт"
     LOGIN_ACCOUNT_BUTTON = (By.XPATH, "//*[contains(@class, 'button_button__33qZ0 ') and text()='Войти в аккаунт']")
     # Кнопка "Личный Кабинет"
-    PERSONAL_ACCOUNT_BUTTON = (
-        By.XPATH, "// *[contains( @class , 'AppHeader_header__link__3D_hX')] // p[text()='Личный Кабинет']")
+    PERSONAL_ACCOUNT_BUTTON = (By.XPATH, "// *[contains( @class , 'AppHeader_header__link__3D_hX')] // p[text()='Личный Кабинет']")
     # Кнопка “Войти” на странице регистрации
     LOGIN_BUTTON_ON_REGISTRATION_PAGE = (By.XPATH, "//*[@class='Auth_link__1fOlj' and text()='Войти']")
     # Кнопка "Восстановить пароль" на странице логин
@@ -39,11 +38,11 @@ class Locators():
     SAUCES_BUTTON = (By.XPATH, "//*[ @class ='text text_type_main-default' and text()='Соусы']")
     # Кнопка "Начинки" на главной странице
     TOPPINGS_BUTTON = (By.XPATH, "//*[ @class ='text text_type_main-default' and text()='Начинки']")
-    # Заголовок "Булки" на главной странице
-    BUNS_TITLE = "//*[contains(@class, 'text text_type_main-medium mb-6 mt-10') and text()='Булки']"
-    # Заголовок "Соусы" на главной странице
-    SAUCES_TITLE = "//*[contains(@class, 'text text_type_main-medium mb-6 mt-10') and text()='Соусы']"
-    # Заголовок "Начинки" на главной странице
-    TOPPINGS_TITLE = "//*[contains(@class, 'text text_type_main-medium mb-6 mt-10') and text()='Начинки']"
+    # Первый элемент в категории "Булки"
+    BUNS_ELEMENT = "//a[@class='BurgerIngredient_ingredient__1TVf6 ml-4 mr-4 mb-8']//p[text()='Флюоресцентная булка R2-D3']"
+    # Первый элемент в категории "Соусы"
+    SAUCES_ELEMENT = "//a[@class='BurgerIngredient_ingredient__1TVf6 ml-4 mr-4 mb-8']//p[text()='Соус Spicy-X']"
+    # Первый элемент в категории "Начинки"
+    TOPPINGS_ELEMENT = "//a[@class='BurgerIngredient_ingredient__1TVf6 ml-4 mr-4 mb-8']//p[text()='Мясо бессмертных моллюсков Protostomia']"
     # Кнопка "Выход" в профиле
     EXIT_BUTTON = (By.XPATH, "//*[@class='Account_listItem__35dAP']//button[text()='Выход']")

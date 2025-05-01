@@ -1,11 +1,10 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 
 @pytest.fixture
 def driver():
-    service = Service('/Users/a1/PycharmProject/qa_pythton_sprint_5/chromedriver')
-    chrome = webdriver.Chrome(service=service)
+    chrome = webdriver.Chrome(ChromeDriverManager().install())
     yield chrome
     chrome.quit()
