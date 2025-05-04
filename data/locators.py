@@ -39,10 +39,10 @@ class Locators():
     # Кнопка "Начинки" на главной странице
     TOPPINGS_BUTTON = (By.XPATH, "//*[ @class ='text text_type_main-default' and text()='Начинки']")
     # Первый элемент в категории "Булки"
-    BUNS_ELEMENT = "//a[@class='BurgerIngredient_ingredient__1TVf6 ml-4 mr-4 mb-8']//p[text()='Флюоресцентная булка R2-D3']"
+    BUNS_ELEMENT = "//a[contains(@href, '61c0c5a71d1f82001bdaaa6d') and @draggable='true']"
     # Первый элемент в категории "Соусы"
-    SAUCES_ELEMENT = "//a[@class='BurgerIngredient_ingredient__1TVf6 ml-4 mr-4 mb-8']//p[text()='Соус Spicy-X']"
+    SAUCES_ELEMENT = "//a[contains(@href, '61c0c5a71d1f82001bdaaa72') and @draggable='true']"
     # Первый элемент в категории "Начинки"
-    TOPPINGS_ELEMENT = "//a[@class='BurgerIngredient_ingredient__1TVf6 ml-4 mr-4 mb-8']//p[text()='Мясо бессмертных моллюсков Protostomia']"
+    TOPPINGS_ELEMENT = "//a[contains(@href, '61c0c5a71d1f82001bdaaa6f') and @draggable='true']"
     # Кнопка "Выход" в профиле
     EXIT_BUTTON = (By.XPATH, "//*[@class='Account_listItem__35dAP']//button[text()='Выход']")

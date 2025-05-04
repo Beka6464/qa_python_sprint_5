@@ -5,35 +5,42 @@ from selenium.webdriver.support import expected_conditions as EC
 from conftest import driver
 from data.all_data import URLs, Data
 from data.locators import Locators
-from utils.helpers import click_button, check_page
+from utils.helpers import click_button
 
 
 class TestNavigation:
-    def wait_for_element(self, driver, locator, timeout=3):
-        return WebDriverWait(driver, timeout).until(EC.presence_of_element_located(locator))
 
     def test_navigation(self, driver):
         driver.get(URLs.LOGIN_PAGE)
 
-        email_field = self.wait_for_element(driver, Locators.EMAIL_FIELD)
+        email_field = WebDriverWait(driver, 3).until(EC.presence_of_element_located(Locators.EMAIL_FIELD))
         email_field.send_keys(Data.login)
 
-        password_field = self.wait_for_element(driver, Locators.PASSWORD_FIELD)
+        password_field = WebDriverWait(driver, 3).until(EC.presence_of_element_located(Locators.PASSWORD_FIELD))
         password_field.send_keys(Data.password)
 
         click_button(driver, Locators.LOGIN_BUTTON)
-        check_page(driver, URLs.BASE_URL, Locators.MAIN_PAGE_TITLE)
+
+        title = WebDriverWait(driver, 3).until(EC.presence_of_element_located(Locators.MAIN_PAGE_TITLE))
+        assert driver.current_url == URLs.BASE_URL, f'Неправильный URL после перехода, ожидался {URLs.BASE_URL}, но был {driver.current_url}'
+        assert title.is_displayed(), 'Заголовок "Соберите бургер" не найден на странице'
 
         click_button(driver, Locators.PERSONAL_ACCOUNT_BUTTON)
-        check_page(driver, URLs.PROFILE_PAGE, Locators.PROFILE_SECTION_TEXT)
+        title = WebDriverWait(driver, 3).until(EC.presence_of_element_located(Locators.PROFILE_SECTION_TEXT))
+        assert driver.current_url == URLs.PROFILE_PAGE, f'Неправильный URL после перехода, ожидался {URLs.PROFILE_PAGE}, но был {driver.current_url}'
+        assert title.is_displayed(), 'Искомый текст с описанием раздела не найден на странице'
 
         click_button(driver, Locators.CONSTRUCTOR_BUTTON)
-        check_page(driver, URLs.BASE_URL, Locators.MAIN_PAGE_TITLE)
+        title = WebDriverWait(driver, 3).until(EC.presence_of_element_located(Locators.MAIN_PAGE_TITLE))
+        assert driver.current_url == URLs.BASE_URL, f'Неправильный URL после перехода, ожидался {URLs.BASE_URL}, но был {driver.current_url}'
+        assert title.is_displayed(), 'Заголовок "Соберите бургер" не найден на странице'
 
         click_button(driver, Locators.PERSONAL_ACCOUNT_BUTTON)
 
         click_button(driver, Locators.EXIT_BUTTON)
-        check_page(driver, URLs.LOGIN_PAGE, Locators.LOGIN_TITLE)
+        title = WebDriverWait(driver, 3).until(EC.presence_of_element_located(Locators.LOGIN_TITLE))
+        assert driver.current_url == URLs.LOGIN_PAGE, f'Неправильный URL после перехода, ожидался {URLs.LOGIN_PAGE}, но был {driver.current_url}'
+        assert title.is_displayed(), 'Заголовок "Вход" не найден на странице'
 
     def test_constructor_navigation_to_buns(self, driver):
         driver.get(URLs.BASE_URL)
