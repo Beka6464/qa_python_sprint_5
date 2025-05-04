@@ -61,6 +61,11 @@ class TestNavigation:
     def test_constructor_navigation_to_toppings(self, driver):
         driver.get(URLs.BASE_URL)
 
+
         click_button(driver, Locators.TOPPINGS_BUTTON)
+
+        WebDriverWait(driver, 3).until(EC.presence_of_element_located(Locators.TOPPINGS_ELEMENT))
+
         assert driver.find_element(By.XPATH,
                                    Locators.TOPPINGS_ELEMENT).is_displayed(), "Элемент не найден, прокрутка не произошла"
+

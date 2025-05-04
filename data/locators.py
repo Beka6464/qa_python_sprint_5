@@ -33,16 +33,18 @@ class Locators():
     # Информационный текст внизу на странице профиля
     PROFILE_SECTION_TEXT = (By.XPATH, "//p[@class='Account_text__fZAIn text text_type_main-default']")
     # Кнопка "Булки" на главной странице
-    BUNS_BUTTON = (By.XPATH, "//*[ @class ='text text_type_main-default' and text()='Булки']")
+    BUNS_BUTTON = (By.XPATH, "//*[@class ='text text_type_main-default' and text()='Булки']")
     # Кнопка "Соусы" на главной странице
-    SAUCES_BUTTON = (By.XPATH, "//*[ @class ='text text_type_main-default' and text()='Соусы']")
+    SAUCES_BUTTON = (By.XPATH, "//*[@class ='text text_type_main-default' and text()='Соусы']")
     # Кнопка "Начинки" на главной странице
-    TOPPINGS_BUTTON = (By.XPATH, "//*[ @class ='text text_type_main-default' and text()='Начинки']")
+    TOPPINGS_BUTTON = (By.XPATH, "//*[@class ='text text_type_main-default' and text()='Начинки']")
     # Первый элемент в категории "Булки"
     BUNS_ELEMENT = "//a[contains(@href, '61c0c5a71d1f82001bdaaa6d') and @draggable='true']"
     # Первый элемент в категории "Соусы"
     SAUCES_ELEMENT = "//a[contains(@href, '61c0c5a71d1f82001bdaaa72') and @draggable='true']"
     # Первый элемент в категории "Начинки"
-    TOPPINGS_ELEMENT = "//a[contains(@href, '61c0c5a71d1f82001bdaaa6f') and @draggable='true']"
+    # TOPPINGS_ELEMENT = (By.XPATH, "//a[contains(@href, '61c0c5a71d1f82001bdaaa6f') and @draggable='true']")
+    TOPPINGS_ELEMENT = (By.XPATH,
+                        "//a[contains(@href, '61c0c5a71d1f82001bdaaa6f') and contains(@class, 'BurgerIngredient_ingredient__1TVf6')]")
     # Кнопка "Выход" в профиле
     EXIT_BUTTON = (By.XPATH, "//*[@class='Account_listItem__35dAP']//button[text()='Выход']")
